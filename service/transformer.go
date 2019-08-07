@@ -72,6 +72,13 @@ func DefaultValueTransformer(input string) string {
 	return input
 }
 
+type JsonInput struct {
+	Id       string `json:"id,omitempty"`
+	Byline   string `json:"byline,omitempty"`
+	Body     string `json:"bodyXML"`
+	Headline string `json:"title,omitempty"`
+}
+
 func getXmlSuggestionRequestFromJson(jsonData []byte) ([]byte, error) {
 
 	var jsonInput JsonInput

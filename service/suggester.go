@@ -59,12 +59,6 @@ var (
 	}
 )
 
-type JsonInput struct {
-	Byline   string `json:"byline,omitempty"`
-	Body     string `json:"bodyXML"`
-	Headline string `json:"title,omitempty"`
-}
-
 type Client interface {
 	Do(req *http.Request) (resp *http.Response, err error)
 }

@@ -81,7 +81,7 @@ func (s *mockSuggesterService) Check() v1_1.Check {
 func TestRequestHandler_HandleSuggestionSuccessfully(t *testing.T) {
 	expect := assert.New(t)
 
-	body := []byte(`{"byline":"Test byline","bodyXML":"Test body","title":"Test title"}`)
+	body := []byte(`{"id":"http://api.ft.com/things/9d5e441e-0b02-11e8-8eb7-42f857ea9f0","byline":"Test byline","bodyXML":"Test body","title":"Test title"}`)
 	req := httptest.NewRequest("POST", "/content/suggest", bytes.NewReader(body))
 	req.Header.Add("X-Request-Id", "tid_test")
 	w := httptest.NewRecorder()
