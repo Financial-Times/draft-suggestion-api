@@ -48,12 +48,6 @@ jobs:
       - run:
           name: Build Dockerfile
           command: docker build -t test/public-suggestions-api .
-      - run:
-          name: Run and Test Container
-          command: |
-            export CONTAINER_HASH=$(docker run -d -p 8080:8080 test/public-suggestions-api)
-            curl --retry-connrefused --retry 10 --retry-delay 3 http://localhost:8080/__health
-            docker kill ${CONTAINER_HASH} 
   dredd:
     working_directory: /go/src/github.com/Financial-Times/public-suggestions-api
     docker:
