@@ -28,4 +28,4 @@ WORKDIR /
 COPY --from=0 /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 COPY --from=0 /artifacts/* /
 
-CMD [ "/public-organisations-api" ]
+CMD [ "/public-suggestions-api" ]
