@@ -41,7 +41,7 @@ jobs:
   dockerfile:
     working_directory: /public-suggestions-api
     docker:
-      - image: docker:17.09.0-git
+      - image: docker:18
     steps:
       - checkout
       - setup_docker_engine
@@ -51,7 +51,7 @@ jobs:
   dredd:
     working_directory: /go/src/github.com/Financial-Times/public-suggestions-api
     docker:
-      - image: bankrs/golang-dredd:go1.8.3-dredd4.4.0
+      - image: golang:1
         environment:
           GOPATH: /go
           CONCEPT_BLACKLISTER_BASE_URL: http://localhost:9000
@@ -72,6 +72,13 @@ jobs:
       - run:
           name: Go Build
           command: go build -v
+      - run:
+          name: Download dredd
+          command: |
+            curl -sL https://deb.nodesource.com/setup_11.x | bash -
+            DEBIAN_FRONTEND=noninteractive apt-get install -y nodejs=11.9.0-1nodesource1
+            npm install -g --unsafe-perm --loglevel warn --user 0 --no-progress dredd@8.0.0
+            rm -rf /var/lib/apt/lists/*
       - run:
           name: Dredd API Testing
           command: dredd
