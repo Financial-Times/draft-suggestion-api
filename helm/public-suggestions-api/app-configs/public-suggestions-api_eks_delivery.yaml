@@ -1,0 +1,16 @@
+# Values used for the deployed application.
+service:
+  name: public-suggestions-api
+eksCluster: true
+env:
+  AUTHORS_SUGGESTION_API_BASE_URL: "http://authors-suggestion-api:8080"
+  AUTHORS_SUGGESTION_ENDPOINT: "/content/suggest/authors"
+  ONTOTEXT_SUGGESTION_API_BASE_URL: "http://ontotext-suggestion-api:8080"
+  ONTOTEXT_SUGGESTION_ENDPOINT: "/content/suggest/ontotext"
+  CONCEPT_CONCORDANCES_API_BASE_URL: "http://internal-concordances:8080"
+  CONCEPT_CONCORDANCES_ENDPOINT: "/internalconcordances"
+  PUBLIC_THINGS_API_BASE_URL: "http://public-things-api:8080"
+  PUBLIC_THINGS_ENDPOINT: "/things"
+  CONCEPT_BLACKLISTER_BASE_URL: "http://concept-suggestions-blacklister:8080"
+  CONCEPT_BLACKLISTER_ENDPOINT: "/blacklist"
+  LOG_LEVEL: "info"
